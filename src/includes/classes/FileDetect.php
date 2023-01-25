@@ -1,5 +1,5 @@
 <?php
-class Detect{
+class FileDetect{
   function mime($file_path){
     $file_info = new finfo(FILEINFO_MIME);
     $mime_type = $file_info->buffer(file_get_contents($file_path));
