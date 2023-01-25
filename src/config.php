@@ -7,5 +7,6 @@ $forcessl=true;
 $debug=true;
 
 $views = array(
-    '/'=>'welcome'
+    '/'=>'welcome',
+    '/upload'=>'upload'
 );
