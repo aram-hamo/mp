@@ -1,0 +1,28 @@
+#!/bin/sh
+
+which doas 1> /dev/null 2> /dev/null 3> /dev/null && asRoot=doas
+which sudo 1> /dev/null 2> /dev/null 3> /dev/null && asRoot=sudo
+
+build(){
+  sed -i 's/debug\=true/debug\=false/' src/config.php
+  $asRoot docker build -t mvc .
+}
+release(){
+  $asRoot docker run -p 443:443 -p 80:80 -itd mvc
+}
+devServer(){
+  sed -i 's/debug\=false/debug\=true/' src/config.php
+  cat src/install/tables.sql | sqlite3 src/db.sqlite
+  $asRoot docker run --rm -it --volume $PWD/src/:/var/www/html/ mvc
+}
+
+case $1 in
+  "build")
+    build;;
+  "release")
+    release ;;
+  "dev-server")
+    devServer ;;
+  *)
+    printf "Usage:\n\nbuild          build a docker image\ndev-server     launch a local dev server\n"
+esac
