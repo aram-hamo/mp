@@ -8,5 +8,6 @@ $debug=true;
 
 $views = array(
     '/'=>'welcome',
-    '/upload'=>'upload'
+    '/upload'=>'upload',
+    '/addnewartist'=>'newartist'
 );
