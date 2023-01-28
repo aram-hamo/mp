@@ -1,5 +1,7 @@
 CREATE TABLE IF NOT EXISTS users (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
+  firstName TEXT ,
+  lastName TEXT ,
   username TEXT UNIQUE,
   password TEXT,
   email TEXT,
@@ -26,4 +28,10 @@ CREATE TABLE IF NOT EXISTS artists(
   lastName TEXT,
   nickName TEXT,
   description TEXT
+);
+CREATE TABLE playlists(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  uId INTEGER,
+  sId INTEGER,
+  title CHAR
 );
