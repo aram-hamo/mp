@@ -9,5 +9,7 @@ $debug=true;
 $views = array(
     '/'=>'welcome',
     '/upload'=>'upload',
-    '/addnewartist'=>'newartist'
+    '/addnewartist'=>'newartist',
+    '/login'=>'login',
+    '/register'=>'register'
 );
