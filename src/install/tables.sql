@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS artists(
   nickName TEXT,
   description TEXT
 );
-CREATE TABLE playlists(
+CREATE TABLE IF NOT EXISTS playlists(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   uId INTEGER,
   sId INTEGER,
