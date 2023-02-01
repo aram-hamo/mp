@@ -6,10 +6,10 @@ if($auth->tokanCheck()){
   die();
 }
 ?>
-<form method="post">
-  <input placeholder="Username" type="text" name="username">
-  <input placeholder="Password" type="password" name="password">
-  <input type="submit" name="submit" Value="Login">
+<form class="form-control" method="post">
+  <input class="form-control" placeholder="Username" type="text" name="username">
+  <input class="form-control" placeholder="Password" type="password" name="password">
+  <input class="form-control btn btn-primary" type="submit" name="submit" Value="Login">
 </form>
 <?php
 if(isset($_POST['submit'])){
