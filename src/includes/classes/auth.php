@@ -6,7 +6,8 @@ class auth extends db{
 
   $tokan = bin2hex(openssl_random_pseudo_bytes(16));
   $hashedPassword = password_hash($password,PASSWORD_BCRYPT);
-	$createUser = $this->conn->prepare("insert into users (firstName,lastName,username,password,email,verified,tokan) values (:firstName,:lastName,:username ,:password,:email,false,:tokan)");
+  $stmt = "insert into users (firstName,lastName,username,password,email,verified,tokan) values (:firstName,:lastName,:username ,:password,:email,false,:tokan)";
+	$createUser = $this->conn->prepare($stmt);
 	$createUser->bindValue(':firstName',$firstName);
 	$createUser->bindValue(':lastName',$lastName);
 	$createUser->bindValue(':username',$username);
@@ -37,5 +38,12 @@ class auth extends db{
       $stmt->execute();
       return $stmt->fetchAll();
     }
+  }
+  public function getUserDataByToken($token){
+    $stmt = $this->conn->prepare('select * from users where tokan=:token');
+    $stmt->bindValue(':token',$token);
+    $stmt->execute();
+    return $stmt->fetchAll();
+
   }
 }
