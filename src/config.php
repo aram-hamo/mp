@@ -11,5 +11,7 @@ $views = array(
     '/upload'=>'upload',
     '/addnewartist'=>'newartist',
     '/login'=>'login',
-    '/register'=>'register'
+    '/register'=>'register',
+    '/playlists'=>'playlists',
+    '/dashboard'=>'dashboard'
 );

@@ -34,4 +34,16 @@ class music extends db{
     $artist->bindValue(":description",$description);
     $artist->execute();
   }
+  public function createPlaylist($uId,$title){
+    $createPlaylist = $this->conn->prepare("INSERT INTO playlists (uId,title)values(:uId,:title);");
+    $createPlaylist->bindValue(":uId",$uId);
+    $createPlaylist->bindValue(":title",$title);
+    $createPlaylist->execute();
+  }
+  public function getPlaylist($uId){
+    $getId = $this->conn->prepare("select * from playlists where uId=:uId");
+    $getId->bindValue(':uId',$uId);
+    $getId->execute();
+    return($getId->fetchAll());
+  }
 }
