@@ -1,4 +1,11 @@
 <?php include('includes/header.php'); ?>
+<?php
+$auth = new auth;
+if(!$auth->tokanCheck()){
+  header("Location: /");
+  die();
+}
+?>
 <!-- {{{ -->
 <style>
 </style>

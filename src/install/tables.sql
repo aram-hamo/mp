@@ -17,10 +17,13 @@ CREATE TABLE IF NOT EXISTS songs_metadata (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   sId INTEGER,
   aId INTEGER,
+  uploader_id INTEGER,
   title text,
   keywoards text,
+  private BOOLEAN,
   FOREIGN KEY(sId) REFERENCES songs(id),
-  FOREIGN KEY(aId) REFERENCES artists(id)
+  FOREIGN KEY(aId) REFERENCES artists(id),
+  FOREIGN KEY(uploader_id) REFERENCES users(id)
 );
 CREATE TABLE IF NOT EXISTS artists(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -33,5 +36,6 @@ CREATE TABLE IF NOT EXISTS playlists(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   uId INTEGER,
   title CHAR,
+  p_id CHAR,
   FOREIGN KEY(uId) REFERENCES users(id)
 );

@@ -17,11 +17,13 @@ class music extends db{
     $getId->execute();
     $Id =  $getId->fetchAll();
 
-    $m_stmt = "insert into songs_metadata (title,keywoards,sId) values (:title,:keywoards,:sId)";
+    $auth = new auth;
+    $m_stmt = "insert into songs_metadata (title,keywoards,sId,uploader_id) values (:title,:keywoards,:sId,:uploader_id)";
     $metadata = $this->conn->prepare($m_stmt);
     $metadata->bindValue(":title",$title);
     $metadata->bindValue(":keywoards",$keywoards);
     $metadata->bindValue(":sId",$Id[0]["id"]);
+    $metadata->bindValue(":uploader_id",$auth->getUserDataByToken($_COOKIE['tokan'])[0]['id']);
     $metadata->execute();
 
   }
@@ -35,9 +37,10 @@ class music extends db{
     $artist->execute();
   }
   public function createPlaylist($uId,$title){
-    $createPlaylist = $this->conn->prepare("INSERT INTO playlists (uId,title)values(:uId,:title);");
+    $createPlaylist = $this->conn->prepare("INSERT INTO playlists (uId,title,p_id)values(:uId,:title,:p_id);");
     $createPlaylist->bindValue(":uId",$uId);
     $createPlaylist->bindValue(":title",$title);
+    $createPlaylist->bindValue(":p_id",bin2hex(openssl_random_pseudo_bytes(8)));
     $createPlaylist->execute();
   }
   public function getPlaylist($uId){
