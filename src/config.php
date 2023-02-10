@@ -13,5 +13,7 @@ $views = array(
     '/login'=>'login',
     '/register'=>'register',
     '/playlists'=>'playlists',
-    '/dashboard'=>'dashboard'
+    '/dashboard'=>'dashboard',
+    '/edit-metadata'=>'edit-metadata',
+    '/player'=>'player'
 );

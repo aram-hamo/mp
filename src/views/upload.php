@@ -13,15 +13,6 @@ if(!$auth->tokanCheck()){
 
 <form class="form-group" method="post" enctype="multipart/form-data">
   <input class="form-control" name="file" type="file">
-  <input class="form-control" name="title"      placeholder="Title" >
-<!--
-  <input type="radio" id=classic name=music_type value="classic">
-  <label for="classic">classic</label> <br>
-  <input type="radio" id=rap name=music_type value="rap">
-  <label for="rap">Rap</label><br>
--->
-  <input class="form-control" name="artist"     placeholder="Artist" >
-  <input class="form-control" name="keywoards"  placeholder="Keywoards (comma seperated)" >
   <input class="form-control btn btn-primary " name="submit" type="submit" value="upload">
 </form>
 <?php
@@ -32,7 +23,7 @@ if(isset($_POST['submit'])){
 
   $song = new music;
   $song->upload($_POST["title"],$_POST["artist"],$_POST["keywoards"],$fileName);
-  
+  header("Location: /edit-metadata?songID=$fileName");
   print_r($_POST);
 }
 ?>
