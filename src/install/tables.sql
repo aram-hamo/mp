@@ -39,3 +39,10 @@ CREATE TABLE IF NOT EXISTS playlists(
   p_id CHAR,
   FOREIGN KEY(uId) REFERENCES users(id)
 );
+CREATE TABLE IF NOT EXISTS in_playlist(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  p_id INT,
+  songs_id INT,
+  FOREIGN KEY(p_id) REFERENCES playlists(id),
+  FOREIGN KEY(songs_id) REFERENCES songs(id)
+);
