@@ -5,15 +5,15 @@ which sudo 1> /dev/null 2> /dev/null 3> /dev/null && asRoot=sudo
 
 build(){
   sed -i 's/debug\=true/debug\=false/' src/config.php
-  $asRoot docker build -t mvc .
+  $asRoot docker build -t mp .
 }
 release(){
-  $asRoot docker run -p 443:443 -p 80:80 -itd mvc
+  $asRoot docker run -p 443:443 -p 80:80 -itd mp
 }
 devServer(){
   sed -i 's/debug\=false/debug\=true/' src/config.php
   cat src/install/tables.sql | sqlite3 src/db.sqlite
-  $asRoot docker run --rm -it --volume $PWD/src/:/var/www/html/ mvc
+  $asRoot docker run --rm -it --volume $PWD/src/:/var/www/html/ mp
 }
 
 case $1 in
