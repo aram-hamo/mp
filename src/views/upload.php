@@ -22,7 +22,7 @@ if(isset($_POST['submit'])){
   move_uploaded_file($_FILES['file']['tmp_name'], 'content/music/'.$fileName);
 
   $song = new music;
-  $song->upload($_POST["title"],$_POST["artist"],$_POST["keywoards"],$fileName);
+  $song->upload($fileName);
   header("Location: /edit-metadata?songID=$fileName");
   print_r($_POST);
 }

@@ -2,7 +2,7 @@
 
 class music extends db{
 
-  public function upload($title,$artist,$keywoards,$file_name){
+  public function upload($file_name){
     $fileDetect = new FileDetect;
 
     $s_stmt = "insert into songs (format,fileName)values(:format,:fileName)";
@@ -18,10 +18,8 @@ class music extends db{
     $Id =  $getId->fetchAll();
 
     $auth = new auth;
-    $m_stmt = "insert into songs_metadata (title,keywoards,sId,uploader_id) values (:title,:keywoards,:sId,:uploader_id)";
+    $m_stmt = "insert into songs_metadata (sId,uploader_id) values (:sId,:uploader_id)";
     $metadata = $this->conn->prepare($m_stmt);
-    $metadata->bindValue(":title",$title);
-    $metadata->bindValue(":keywoards",$keywoards);
     $metadata->bindValue(":sId",$Id[0]["id"]);
     $metadata->bindValue(":uploader_id",$auth->getUserDataByToken($_COOKIE['tokan'])[0]['id']);
     $metadata->execute();
