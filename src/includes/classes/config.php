@@ -15,4 +15,12 @@ class config{
     ini_set("display_startup_errors","On");
     ini_set("log_errors","On");
   }
+
+  function csrf(){
+    session_start(['cookie_secure' => true,'cookie_httponly' => true]);
+    if(empty($_SESSION['CSRF'])){
+      $_SESSION['CSRF'] = bin2hex(random_bytes(16));
+    }
+    $CSRF_TOKEN = $_SESSION['CSRF'];
+  }
 }
