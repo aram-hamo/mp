@@ -6,7 +6,7 @@ include(__DIR__.'/includes/autoload.php');
 $config = new config();
 if($forcessl){ $config->forcessl(); }
 if($debug){ $config->debug(); }
-if($csrf){ $config->csrf((); }
+if($csrf){ $config->csrf(); }
 
 if(!isset($_GET["url"])){
     include(__DIR__.'/views/'.$views['/'].'.php');
