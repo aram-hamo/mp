@@ -5,6 +5,7 @@ define('rootURL',$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].installD
 
 $forcessl=true;
 $debug=true;
+$csrf=true;
 
 $views = array(
     '/'=>'welcome',
