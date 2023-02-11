@@ -53,4 +53,11 @@ class music extends db{
     $addToPlaylist->bindValue(':song_id',$song_id);
     $addToPlaylist->execute();
   }
+  public function getAllSongs($uId){
+    $cmd = "SELECT * FROM songs  INNER JOIN songs_metadata ON songs.id = songs_metadata.sId WHERE uploader_id=:uId;";
+    $getAllSongs = $this->conn->prepare($cmd);
+    $getAllSongs->bindValue(':uId',$uId);
+    $getAllSongs->execute();
+    return($getAllSongs->fetchAll());
+  }
 }

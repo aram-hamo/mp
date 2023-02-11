@@ -24,7 +24,7 @@ if(isset($_POST['submit'])){
 
   $song = new music;
   $song->upload($fileName);
-  header("Location: /edit-metadata?songID=$fileName");
+  header("Location: /dashboard/edit-metadata?songID=$fileName");
   print_r($_POST);
 }
 ?>
