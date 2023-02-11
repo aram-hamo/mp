@@ -8,12 +8,14 @@ $debug=true;
 
 $views = array(
     '/'=>'welcome',
-    '/upload'=>'upload',
+    '/dashboard/upload'=>'upload',
     '/addnewartist'=>'newartist',
     '/login'=>'login',
     '/register'=>'register',
-    '/playlists'=>'playlists',
+    '/dashboard/playlists'=>'playlists',
     '/dashboard'=>'dashboard',
     '/edit-metadata'=>'edit-metadata',
+    '/dashboard/allsongs'=>'allsongs',
+    '/dashboard/profile'=>'profile',
     '/player'=>'player'
 );
