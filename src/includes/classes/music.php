@@ -49,4 +49,10 @@ class music extends db{
     $getId->execute();
     return($getId->fetchAll());
   }
+  public function addToPlaylist($p_id,$song_id){
+    $addToPlaylist = $this->conn->prepare("insert into in_playlist (p_id,songs_id)values(:p_id,:song_id)");
+    $addToPlaylist->bindValue(':p_id',$p_id);
+    $addToPlaylist->bindValue(':song_id',$song_id);
+    $addToPlaylist->execute();
+  }
 }
