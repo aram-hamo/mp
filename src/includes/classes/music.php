@@ -24,6 +24,7 @@ class music extends db{
     $metadata->bindValue(":uploader_id",$auth->getUserDataByToken($_COOKIE['tokan'])[0]['id']);
     $metadata->execute();
 
+    shell_exec("ffmpeg -i content/music/".$file_name." -an -c:v copy content/music/".$file_name.".png");
   }
   public function addArtist($firstName,$lastName,$nickName,$description){
     $astmt = "insert into artists (firstName,lastName,nickName,description) values (:firstName,:lastName,:nickName,:description)";

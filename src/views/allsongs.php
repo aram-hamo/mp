@@ -1,4 +1,5 @@
 <?php include('includes/header.php'); ?>
+<title>Your Songs</title>
 <?php include('includes/navbar.php'); ?>
 <?php
 $auth = new auth;
@@ -46,7 +47,7 @@ echo '</pre>';
 </style>
 <div class=player>
 <center>
-  <img width=250px height=250px src="" alt=""><br>
+  <img id=coverArt width=400 height=225 src="" alt=""><br>
   <a id=artist></a><br>
   <a id=title></a><br>
   <audio id=song ></audio>

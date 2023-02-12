@@ -1,4 +1,5 @@
 <?php include('includes/header.php'); ?>
+<title>Upload</title>
 <?php include('includes/navbar.php'); ?>
 <?php
 $auth = new auth;

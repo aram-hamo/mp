@@ -1,4 +1,5 @@
 <?php include('includes/header.php'); ?>
+<title>Profile</title>
 <?php
 $auth = new auth;
 if(!$auth->tokanCheck()){
