@@ -18,6 +18,8 @@ CREATE TABLE IF NOT EXISTS songs_metadata (
   sId INTEGER,
   uploader_id INTEGER,
   title text,
+  album text,
+  artist text,
   keywoards text,
   private BOOLEAN,
   FOREIGN KEY(sId) REFERENCES songs(id),

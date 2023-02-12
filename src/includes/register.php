@@ -10,4 +10,8 @@
 <?php
 if(isset($_POST['submit'])){
   $auth->register($_POST['firstName'],$_POST['lastName'],$_POST['username'],$_POST['password'],$_POST['email']);
+  if($auth->tokanCheck()){
+    header("Location: /dashboard");
+    exit();
+  }
 }

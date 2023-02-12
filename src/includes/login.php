@@ -7,4 +7,8 @@
 <?php
 if(isset($_POST['submit'])){
   $auth->login($_POST['username'],$_POST['password']);
+  if($auth->tokanCheck()){
+    header("Location: /dashboard");
+    exit();
+  }
 }

@@ -29,3 +29,22 @@ function playPause(){
     song.pause();
   }
 }
+function playThis(songId){
+  song = document.getElementById("song");
+  song.src = '/content/music/' + songId;
+  playPause();
+}
+min = song.duration/60;
+sec = song.duration%60;
+console.log(min.toFixed(0)+":"+sec.toFixed(0));
+
+cTmin = song.currentTime/60;
+cTsec = song.currentTime%60;
+
+console.log(cTmin.toFixed(0)+":"+cTsec.toFixed(0));
+const songsFrame = document.getElementById("songsFrame");
+for(var i = 0;i<mysongs.length ; i++){
+  songsFrame.innerHTML += '<div onclick=playThis("'+mysongs[i]["fileName"]+'") id="'+mysongs[i]["fileName"]+'"></div>';
+  songID = document.getElementById(mysongs[i]["fileName"]);
+  songID.innerHTML += "<div> Title: "+mysongs[i]["title"]+"</div>";
+}

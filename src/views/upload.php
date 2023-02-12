@@ -4,14 +4,9 @@
 $auth = new auth;
 if(!$auth->tokanCheck()){
   header("Location: /");
-  die();
+  exit();
 }
 ?>
-<!-- {{{ -->
-<style>
-</style>
-<!-- }}} -->
-
 <form class="form-group" method="post" enctype="multipart/form-data">
   <input class="form-control" name="file" type="file">
   <input class="form-control btn btn-primary " name="submit" type="submit" value="upload">
@@ -25,7 +20,6 @@ if(isset($_POST['submit'])){
   $song = new music;
   $song->upload($fileName);
   header("Location: /dashboard/edit-metadata?songID=$fileName");
-  print_r($_POST);
 }
 ?>
 <?php include('includes/footer.php'); ?>

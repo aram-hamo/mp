@@ -60,4 +60,19 @@ class music extends db{
     $getAllSongs->execute();
     return($getAllSongs->fetchAll());
   }
+  public function getSongById($fileName){
+    $cmd = "SELECT * FROM songs  INNER JOIN songs_metadata ON songs.id = songs_metadata.sId WHERE fileName=:fileName;";
+    $getSongById = $this->conn->prepare($cmd);
+    $getSongById->bindValue(':fileName',$fileName);
+    $getSongById->execute();
+    return($getSongById->fetchAll());
+  }
+  public function changeMetadata($album,$artist,$title,$songID){
+    $changeMetadata = $this->conn->prepare("UPDATE songs_metadata SET title=:title, album=:album,artist=:artist WHERE sId=:songID");
+    $changeMetadata->bindValue(':album',$album);
+    $changeMetadata->bindValue(':artist',$artist);
+    $changeMetadata->bindValue(':title',$title);
+    $changeMetadata->bindValue(':songID',$songID);
+    $changeMetadata->execute();
+  }
 }
