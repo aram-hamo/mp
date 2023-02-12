@@ -4,6 +4,7 @@ mysongs = JSON.parse(songs);
 function updateUI(){
   document.getElementById("title").innerText = mysongs[currentSongId]['title'];
   document.getElementById("artist").innerText = mysongs[currentSongId]['artist'];
+  document.getElementById("coverArt").src = '/content/music/'+mysongs[currentSongId]['fileName']+'.png';
 }
 if(song.src == ""){
   song.src = '/content/music/' + mysongs[0]['fileName'];
