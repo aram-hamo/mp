@@ -5,7 +5,7 @@ $userData = $auth->getUserDataByToken($_COOKIE['tokan']);
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/">MP</a>
 
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <ul class="navbar-nav">
       <li class="nav-item active">
         <a class="nav-link" href="/dashboard/playlists">Playlists</a>
       </li>

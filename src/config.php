@@ -9,14 +9,14 @@ $csrf=true;
 
 $views = array(
     '/'=>'welcome',
-    '/dashboard/upload'=>'upload',
-    '/addnewartist'=>'newartist',
-    '/login'=>'login',
-    '/register'=>'register',
-    '/dashboard/playlists'=>'playlists',
-    '/dashboard'=>'dashboard',
-    '/dashboard/edit-metadata'=>'edit-metadata',
-    '/dashboard/allsongs'=>'allsongs',
-    '/dashboard/profile'=>'profile',
-    '/player'=>'player'
+    '/dashboard/upload/'=>'upload',
+    '/addnewartist/'=>'newartist',
+    '/login/'=>'login',
+    '/register/'=>'register',
+    '/dashboard/playlists/'=>'playlists',
+    '/dashboard/'=>'dashboard',
+    '/dashboard/edit-metadata/'=>'edit-metadata',
+    '/dashboard/allsongs/'=>'allsongs',
+    '/dashboard/profile/'=>'profile',
+    '/player/'=>'player'
 );
