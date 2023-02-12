@@ -1,6 +1,10 @@
 var currentSongId;
 songs = document.getElementById("songs").innerText;
 mysongs = JSON.parse(songs);
+function updateUI(){
+  document.getElementById("title").innerText = mysongs[currentSongId]['title'];
+  document.getElementById("artist").innerText = mysongs[currentSongId]['artist'];
+}
 if(song.src == ""){
   song.src = '/content/music/' + mysongs[0]['fileName'];
   currentSongId = 0;
@@ -11,6 +15,7 @@ function previous(){
   currentSongId = currentSongId-1;
   document.getElementById("playPause").src = "/static/pause.png";
   song.play();
+  updateUI();
 }
 function next(){
   song = document.getElementById("song");
@@ -18,12 +23,14 @@ function next(){
   currentSongId = currentSongId+1;
   document.getElementById("playPause").src = "/static/pause.png";
   song.play();
+  updateUI();
 }
 function playPause(){
   song = document.getElementById("song");
   if(song.paused){
     document.getElementById("playPause").src = "/static/pause.png";
     song.play();
+    updateUI();
   }else{
     document.getElementById("playPause").src = "/static/play.png";
     song.pause();
@@ -33,6 +40,7 @@ function playThis(songId){
   song = document.getElementById("song");
   song.src = '/content/music/' + songId;
   playPause();
+  updateUI();
 }
 min = song.duration/60;
 sec = song.duration%60;
