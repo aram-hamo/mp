@@ -48,3 +48,20 @@ for(var i = 0;i<mysongs.length ; i++){
   songID = document.getElementById(mysongs[i]["fileName"]);
   songID.innerHTML += "<div> Title: "+mysongs[i]["title"]+"</div>";
 }
+
+// event listener for keyboard shortcuts
+document.addEventListener('keydown', function(event) {
+if(event.keyCode == 32) {
+  playPause();
+}else if(event.keyCode == 40) {
+  musicVolume = song.volume;
+  song.volume = musicVolume - 0.05
+}else if(event.keyCode == 38){
+  musicVolume = song.volume;
+  song.volume = musicVolume + 0.05
+}else if(event.keyCode == 78){
+  next();
+}else if(event.keyCode == 80){
+  previous();
+}
+});

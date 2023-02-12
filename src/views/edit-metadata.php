@@ -20,6 +20,7 @@ echo '
 if(isset($_POST['submit'])){
   $songID = $_GET['songID'];
   $music->changeMetadata($_POST['album'],$_POST['artist'],$_POST['title'],$song_metadata["sId"]);
+  header("Location: /dashboard/upload");
 }
 }else{
   header("Location: /dashboard/");
