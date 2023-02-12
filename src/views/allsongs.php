@@ -36,6 +36,13 @@ echo '</pre>';
 .progressBar{
   width:40%;
 }
+#songsFrame{
+  width: 600px;
+  height: 150px;
+  overflow: auto;
+  text-align: justify;
+  padding: 20px;
+}
 </style>
 <div class=player>
 <center>

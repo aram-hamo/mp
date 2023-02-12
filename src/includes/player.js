@@ -36,10 +36,11 @@ function playPause(){
     song.pause();
   }
 }
-function playThis(songId){
+function playThis(arId){
   song = document.getElementById("song");
-  song.src = '/content/music/' + songId;
+  song.src = '/content/music/' + mysongs[arId]['fileName'];
   playPause();
+  currentSongId = arId;
   updateUI();
 }
 min = song.duration/60;
@@ -52,9 +53,9 @@ cTsec = song.currentTime%60;
 console.log(cTmin.toFixed(0)+":"+cTsec.toFixed(0));
 const songsFrame = document.getElementById("songsFrame");
 for(var i = 0;i<mysongs.length ; i++){
-  songsFrame.innerHTML += '<div onclick=playThis("'+mysongs[i]["fileName"]+'") id="'+mysongs[i]["fileName"]+'"></div>';
+  songsFrame.innerHTML += '<div onclick=playThis('+i+') id="'+mysongs[i]["fileName"]+'"></div>';
   songID = document.getElementById(mysongs[i]["fileName"]);
-  songID.innerHTML += "<div> Title: "+mysongs[i]["title"]+"</div>";
+  songID.innerHTML += "<div>"+mysongs[i]["title"]+"</div>";
 }
 
 // event listener for keyboard shortcuts
