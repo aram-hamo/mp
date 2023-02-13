@@ -5,6 +5,7 @@ function updateUI(){
   document.getElementById("title").innerText = mysongs[currentSongId]['title'];
   document.getElementById("artist").innerText = mysongs[currentSongId]['artist'];
   document.getElementById("coverArt").src = '/content/music/'+mysongs[currentSongId]['fileName']+'.png';
+  document.getElementById("title").value = mysongs[currentSongId]['title'];
 }
 if(song.src == ""){
   song.src = '/content/music/' + mysongs[0]['fileName'];

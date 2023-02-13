@@ -1,5 +1,5 @@
 <?php include('includes/header.php'); ?>
-<title>Your Songs</title>
+<title id=title>Your Songs</title>
 <?php include('includes/navbar.php'); ?>
 <?php
 $auth = new auth;
@@ -38,7 +38,7 @@ echo '</pre>';
   width:40%;
 }
 #songsFrame{
-  width: 600px;
+  width: 100%;
   height: 150px;
   overflow: auto;
   text-align: justify;
