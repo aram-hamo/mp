@@ -25,10 +25,10 @@ class music extends db{
     $metadata->execute();
 
     shell_exec("ffmpeg -i content/music/".$file_name." -an -c:v copy content/music/".$file_name.".png");
-    $metadata = shell_exec("mediainfo --Output=JSON content/music/".$file_name);
+    $metadata = shell_exec("exiftool -j content/music/".$file_name);
     $metadataInJSON = json_decode($metadata,1);
-    $title = $metadataInJSON['media']['track'][0]['Title'];
-    $album = $metadataInJSON['media']['track'][0]['Album'];
+    $title = $metadataInJSON[0]['Title'] ;
+    $album = $metadataInJSON[0]['Album'];
     if(!isset($title)){ $title = ""; }
     if(!isset($album)){ $album = ""; }
     $this->changeMetadata($album,"",$title,$Id[0]["id"]);

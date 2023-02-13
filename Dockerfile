@@ -1,7 +1,7 @@
 FROM debian:11
 
 RUN apt update && apt install php apache2 sqlite3 php-sqlite3 net-tools -y
-RUN apt install mediainfo ffmpeg -y
+RUN apt install ffmpeg exiftool -y
 RUN rm /var/www/html/index.html
 COPY src /var/www/html/
 RUN cat /var/www/html/install/tables.sql | sqlite3 /var/www/html/db.sqlite
