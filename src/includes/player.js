@@ -5,7 +5,17 @@ function updateUI(){
   document.getElementById("title").innerText = mysongs[currentSongId]['title'];
   document.getElementById("artist").innerText = mysongs[currentSongId]['artist'];
   document.getElementById("coverArt").src = '/content/music/'+mysongs[currentSongId]['fileName']+'.png';
-  document.getElementById("title").value = mysongs[currentSongId]['title'];
+  document.getElementById("songTitle").innerHTML = mysongs[currentSongId]['title'];
+
+
+  min = song.duration/60;
+  sec = song.duration%60;
+  cTmin = song.currentTime/60;
+  cTsec = song.currentTime%60;
+  song = document.getElementById("song");
+  document.getElementById("currentTime").innerText = cTmin.toFixed(0)+":"+cTsec.toFixed(0);
+  document.getElementById("progressBar").value = (song.duration/1000)*song.currentTime*10;
+  document.getElementById("duration").innerText = min.toFixed(0)+":"+sec.toFixed(0) ;
 }
 if(song.src == ""){
   song.src = '/content/music/' + mysongs[0]['fileName'];
@@ -45,17 +55,9 @@ function playThis(arId){
   currentSongId = arId;
   updateUI();
 }
-min = song.duration/60;
-sec = song.duration%60;
-console.log(min.toFixed(0)+":"+sec.toFixed(0));
-
-cTmin = song.currentTime/60;
-cTsec = song.currentTime%60;
-
-console.log(cTmin.toFixed(0)+":"+cTsec.toFixed(0));
 const songsFrame = document.getElementById("songsFrame");
 for(var i = 0;i<mysongs.length ; i++){
-  songsFrame.innerHTML += '<div onclick=playThis('+i+') id="'+mysongs[i]["fileName"]+'"></div>';
+  songsFrame.innerHTML += '<div class=pointer onclick=playThis('+i+') id="'+mysongs[i]["fileName"]+'"></div>';
   songID = document.getElementById(mysongs[i]["fileName"]);
   songID.innerHTML += "<div>"+mysongs[i]["title"]+"</div>";
 }

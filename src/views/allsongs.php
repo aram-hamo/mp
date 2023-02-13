@@ -34,7 +34,7 @@ echo '</pre>';
   width:40px;
   margin:20px;
 }
-.progressBar{
+#progressBar{
   width:40%;
 }
 #songsFrame{
@@ -49,9 +49,11 @@ echo '</pre>';
 <center>
   <img id=coverArt width=400 height=225 src="" alt=""><br>
   <a id=artist></a><br>
-  <a id=title></a><br>
+  <a id=songTitle></a><br>
+  <a id=duration></a><br>
+  <a id=currentTime></a><br>
   <audio id=song ></audio>
-  <input class=progressBar type="range" min="1" max="1000" /><br>
+  <input id=progressBar type="range" min="1" max="1000" value=1 /><br>
   <img onclick="previous()" class="control pointer" src="/static/previous.png" alt="">
   <img onclick="playPause()" id="playPause" class="control pointer" src="/static/play.png" alt="">
   <img onclick="next()" class="control pointer" src="/static/next.png" alt="">
