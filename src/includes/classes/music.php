@@ -29,6 +29,8 @@ class music extends db{
     $metadataInJSON = json_decode($metadata,1);
     $title = $metadataInJSON['media']['track'][0]['Title'];
     $album = $metadataInJSON['media']['track'][0]['Album'];
+    if(!isset($title)){ $title = ""; }
+    if(!isset($album)){ $album = ""; }
     $this->changeMetadata($album,"",$title,$Id[0]["id"]);
   }
   public function addArtist($firstName,$lastName,$nickName,$description){
