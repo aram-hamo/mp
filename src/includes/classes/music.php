@@ -25,6 +25,11 @@ class music extends db{
     $metadata->execute();
 
     shell_exec("ffmpeg -i content/music/".$file_name." -an -c:v copy content/music/".$file_name.".png");
+    $metadata = shell_exec("mediainfo --Output=JSON content/music/".$file_name);
+    $metadataInJSON = json_decode($metadata,1);
+    $title = $metadataInJSON['media']['track'][0]['Title'];
+    $album = $metadataInJSON['media']['track'][0]['Album'];
+    $this->changeMetadata($album,"",$title,$Id[0]["id"]);
   }
   public function addArtist($firstName,$lastName,$nickName,$description){
     $astmt = "insert into artists (firstName,lastName,nickName,description) values (:firstName,:lastName,:nickName,:description)";
