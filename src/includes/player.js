@@ -47,6 +47,7 @@ function previous(){
   document.getElementById("playPause").src = "/static/pause.png";
   song.play();
   updateUI();
+  window.location.href = "#"+mysongs[currentSongId]['fileName'];
 }
 function next(){
   song = document.getElementById("song");
@@ -61,6 +62,7 @@ function next(){
   document.getElementById("playPause").src = "/static/pause.png";
   song.play();
   updateUI();
+  window.location.href = "#"+mysongs[currentSongId]['fileName'];
 }
 function playPause(){
   song = document.getElementById("song");
@@ -79,6 +81,7 @@ function playThis(arId){
   playPause();
   currentSongId = arId;
   updateUI();
+  window.location.href = "#"+mysongs[currentSongId]['fileName'];
 }
 const songsFrame = document.getElementById("songsFrame");
 for(var i = 0;i<mysongs.length ; i++){
