@@ -17,10 +17,17 @@ function updateUI(){
   document.getElementById("progressBar").value = (song.duration/1000)*song.currentTime*10;
   document.getElementById("duration").innerText = min.toFixed(0)+":"+sec.toFixed(0) ;
 
-
-  document.getElementById(mysongs[currentSongId-1]['fileName']).style.color =  "";
-  document.getElementById(mysongs[currentSongId+1]['fileName']).style.color =  "";
-  document.getElementById(mysongs[currentSongId]['fileName']).style.color =  "red";
+if(currentSongId in mysongs){
+  document.getElementById(mysongs[0]['fileName']).style =  "";
+  document.getElementById(mysongs[mysongs.length-1]['fileName']).style =  "";
+  document.getElementById(mysongs[currentSongId]['fileName']).style =  "background-color: red;";
+}
+if(currentSongId-1 in mysongs){
+  document.getElementById(mysongs[currentSongId-1]['fileName']).style =  "";
+}
+if(currentSongId+1 in mysongs){
+  document.getElementById(mysongs[currentSongId+1]['fileName']).style =  "";
+}
 }
 if(song.src == ""){
   song.src = '/content/music/' + mysongs[0]['fileName'];
@@ -28,16 +35,29 @@ if(song.src == ""){
 }
 function previous(){
   song = document.getElementById("song");
-  song.src = '/content/music/' + mysongs[currentSongId-1]['fileName'];
-  currentSongId = currentSongId-1;
+  song.pause();
+  if(currentSongId-1 in mysongs){
+    song.src = '/content/music/' + mysongs[currentSongId-1]['fileName'];
+    currentSongId = currentSongId-1;
+  }else{
+    length = mysongs.length-1;
+    song.src = '/content/music/' + mysongs[length]['fileName'];
+    currentSongId = length;
+  }
   document.getElementById("playPause").src = "/static/pause.png";
   song.play();
   updateUI();
 }
 function next(){
   song = document.getElementById("song");
-  song.src = '/content/music/' + mysongs[currentSongId+1]['fileName'];
-  currentSongId = currentSongId+1;
+  song.pause();
+  if(currentSongId+1 in mysongs){
+    song.src = '/content/music/' + mysongs[currentSongId+1]['fileName'];
+    currentSongId = currentSongId+1;
+  }else{
+    song.src = '/content/music/' + mysongs[0]['fileName'];
+    currentSongId = 0;
+  }
   document.getElementById("playPause").src = "/static/pause.png";
   song.play();
   updateUI();
