@@ -1,11 +1,5 @@
 <?php include('includes/header.php'); ?>
 <style>
-.register,.login{
-  padding:5%;
-}
-input{
-  margin: 10px ;
-}
 form > a{
   text-decoration:0;
 }

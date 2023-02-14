@@ -1,4 +1,4 @@
-<form class="form-control register" method="post">
+<form class="form-control form" method="post">
   <center><h1>Register</h1></center>
   <input class="form-control" placeholder="First Name" type="text" name="firstName">
   <input class="form-control" placeholder="Last Name" type="text" name="lastName">

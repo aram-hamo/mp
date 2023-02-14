@@ -8,7 +8,8 @@ if(!$auth->tokanCheck()){
   exit();
 }
 ?>
-<form class="form-group" method="post" enctype="multipart/form-data">
+<center><h1>Upload</h1></center>
+<form class="form-control form" method="post" enctype="multipart/form-data">
   <input class="form-control" name="songs[]" multiple=multiple type="file">
   <input class="form-control btn btn-primary " name="submit" type="submit" value="upload">
 </form>

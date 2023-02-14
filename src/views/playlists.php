@@ -9,7 +9,7 @@ if(!$auth->tokanCheck()){
   die();
 }
 if(!isset($_GET['id'])){
-echo '<form method="post">
+echo '<center><h1>Create Playlist</h1></center><form class="form form-control" method="post">
 <input class=form-control placeholder="Playlist Name" name="title" >
 <input class="form-control btn btn-primary" value="New Playlist" name=submit type="submit">
 </form>';
