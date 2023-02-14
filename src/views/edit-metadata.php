@@ -14,7 +14,7 @@ echo '
   <input class="form-control" name="title"      placeholder="Title" value="'.$song_metadata['title'].'">
   <input class="form-control" name="artist"     placeholder="Artist" value="'.$song_metadata['artist'].'" >
   <input class="form-control" name="album"     placeholder="Album" value="'.$song_metadata['album'].'" >
-  <input class="form-control btn btn-primary " name="submit" type="submit" value="upload">
+  <input class="form-control btn btn-primary " name="submit" type="submit" value="Update">
 </form>
 ';
 if(isset($_POST['submit'])){
