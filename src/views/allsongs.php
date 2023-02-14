@@ -54,7 +54,7 @@ echo '</pre>';
 </style>
 <div class=player>
 <center>
-  <img id=coverArt width=400 height=225 src="" alt=""><br>
+  <img id=coverArt src="" alt=""><br>
   <a id=artist></a><br>
   <a id=songTitle></a><br>
   <a id=duration></a><br>

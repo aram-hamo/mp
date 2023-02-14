@@ -1,0 +1,15 @@
+{
+  "short_name": "MP",
+  "name": "MP",
+  "start_url": "/",
+  "background_color": "#F8F9FA",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#F8F9FA",
+  "icons": [{
+    "src": "static/icon.png",
+    "sizes": "512x512",
+    "type": "image/png",
+    "purpose": "any maskable"
+  }]
+}

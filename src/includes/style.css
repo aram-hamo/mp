@@ -1,3 +1,4 @@
-@media(min-width:400px ){body{padding-left:1%;  padding-right:1%; } }
-@media(min-width:700px ){body{padding-left:5%; padding-right:5%;}a,p{font-size:1.2em;} }
-@media(min-width:1000px){body{padding-left:10%; padding-right:10%;}a,p{font-size:1.3em;} }
+#coverArt{ width:80%; }
+@media(min-width:400px ){body{padding-left:1%;  padding-right:1%; }#coverArt{ width:80%; } }
+@media(min-width:700px ){body{padding-left:5%; padding-right:5%;}a,p{font-size:1.2em;}#coverArt{ width:70%; } }
+@media(min-width:1000px){body{padding-left:10%; padding-right:10%;}a,p{font-size:1.3em;}#coverArt{ width:50%; } }
