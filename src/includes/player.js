@@ -16,6 +16,11 @@ function updateUI(){
   document.getElementById("currentTime").innerText = cTmin.toFixed(0)+":"+cTsec.toFixed(0);
   document.getElementById("progressBar").value = (song.duration/1000)*song.currentTime*10;
   document.getElementById("duration").innerText = min.toFixed(0)+":"+sec.toFixed(0) ;
+
+
+  document.getElementById(mysongs[currentSongId-1]['fileName']).style.color =  "";
+  document.getElementById(mysongs[currentSongId+1]['fileName']).style.color =  "";
+  document.getElementById(mysongs[currentSongId]['fileName']).style.color =  "red";
 }
 if(song.src == ""){
   song.src = '/content/music/' + mysongs[0]['fileName'];

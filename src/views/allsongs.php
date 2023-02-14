@@ -22,7 +22,7 @@ echo '</pre>';
   text-decoration:unset;
 }
 .player{
-  margin-top:10%;
+  margin-top:3%;
   width:100%;
   height:100vh;
 }
@@ -39,10 +39,17 @@ echo '</pre>';
 }
 #songsFrame{
   width: 100%;
-  height: 150px;
+  height: 50%;
   overflow: auto;
   text-align: justify;
   padding: 20px;
+  border: 1px solid black;
+}
+#songsFrame > div{
+  border-radius:5px;
+  border: 1px solid black;
+  margin:2%;
+  padding:2%;
 }
 </style>
 <div class=player>
