@@ -1,4 +1,18 @@
 <?php include('includes/header.php'); ?>
+<style>
+.register,.login{
+  padding:5%;
+}
+input{
+  margin: 10px ;
+}
+form > a{
+  text-decoration:0;
+}
+@media(min-width:400px ){body{ margin-top:5%; padding-left:5%; padding-right:5%; }}
+@media(min-width:700px ){body{ margin-top:5%; padding-left:10%; padding-right:10%; } }
+@media(min-width:1000px){body{ margin-top:5%; padding-left:20%; padding-right:20%; } }
+</style>
 <?php
 $auth = new auth;
 if($auth->tokanCheck()){

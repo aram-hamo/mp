@@ -1,4 +1,5 @@
-<form class="form-control" method="post">
+<center><h1>Login</h1></center>
+<form class="form-control login" method="post">
   <input class="form-control" placeholder="Username" type="text" name="username">
   <input class="form-control" placeholder="Password" type="password" name="password">
   <input class="form-control btn btn-primary" type="submit" name="submit" Value="Login">

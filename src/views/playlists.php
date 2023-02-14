@@ -16,6 +16,7 @@ echo '<form method="post">
   if(isset($_POST['submit'])){
     $music->createPlaylist($userID,$_POST['title']);
   }
+  echo "<h2>Your Playlists</h2>";
   foreach($music->getPlaylist($userID) as $playlist){
     echo '<a href="'.rootURL.'/dashboard/playlists?id='.$playlist['p_id'].'">'.htmlspecialchars($playlist['title']).'</a><br>'."\n";
   }
