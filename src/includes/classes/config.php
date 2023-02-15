@@ -21,6 +21,6 @@ class config{
     if(empty($_SESSION['CSRF'])){
       $_SESSION['CSRF'] = bin2hex(random_bytes(16));
     }
-    $CSRF_TOKEN = $_SESSION['CSRF'];
+    const $CSRF_TOKEN = $_SESSION['CSRF'];
   }
 }

@@ -46,4 +46,13 @@ class auth extends db{
     return $stmt->fetchAll();
 
   }
+  public function updateUserData($uid,$firstName,$lastName,$email){
+    $stmt = $this->conn->prepare('update users set firstName=:firstName,lastName=:lastName,email=:email where id=:uid');
+    $stmt->bindValue(':uid',$uid);
+    $stmt->bindValue(':firstName',$firstName);
+    $stmt->bindValue(':lastName',$lastName);
+    $stmt->bindValue(':email',$email);
+    $stmt->execute();
+
+  }
 }
