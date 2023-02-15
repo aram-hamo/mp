@@ -38,7 +38,11 @@ $music = new music;
   </div>
   <input value="<?=htmlspecialchars($userData[0]['email'])?>" type="email" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
 </div>
-<input class="btn btn-primary" type="submit" value="Update">
-<input class="btn btn-danger" type="submit" value="Delete My Account">
+<input class="btn btn-primary" type="submit" name=update value="Update">
+<input class="btn btn-danger" type="submit" name=delete value="Delete My Account">
 </form>
+<?php
+if(isset($_POST['update'])){
+}
+?>
 <?php include('includes/footer.php'); ?>
