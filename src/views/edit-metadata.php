@@ -14,10 +14,11 @@ echo '
   <input class="form-control" name="title"      placeholder="Title" value="'.$song_metadata['title'].'">
   <input class="form-control" name="artist"     placeholder="Artist" value="'.$song_metadata['artist'].'" >
   <input class="form-control" name="album"     placeholder="Album" value="'.$song_metadata['album'].'" >
+  <input name="csrf" value="'.$_SESSION['CSRF'].'" hidden>
   <input class="form-control btn btn-primary " name="submit" type="submit" value="Update">
 </form>
 ';
-if(isset($_POST['submit'])){
+if(isset($_POST['submit']) && $_POST['csrf'] == CSRF_TOKEN){
   $songID = $_GET['songID'];
   $music->changeMetadata($_POST['album'],$_POST['artist'],$_POST['title'],$song_metadata["sId"]);
   header("Location: /dashboard/");

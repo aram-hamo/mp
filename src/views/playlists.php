@@ -11,9 +11,10 @@ if(!$auth->tokanCheck()){
 if(!isset($_GET['id'])){
 echo '<center><h1>Create Playlist</h1></center><form class="form form-control" method="post">
 <input class=form-control placeholder="Playlist Name" name="title" >
+<input name="csrf" value="'.$_SESSION['CSRF'].'" hidden>
 <input class="form-control btn btn-primary" value="New Playlist" name=submit type="submit">
 </form>';
-  if(isset($_POST['submit'])){
+  if(isset($_POST['submit'])&& $_POST['csrf'] == CSRF_TOKEN){
     $music->createPlaylist($userID,$_POST['title']);
   }
   echo "<h2>Your Playlists</h2>";

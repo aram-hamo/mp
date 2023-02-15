@@ -11,10 +11,11 @@ if(!$auth->tokanCheck()){
 <center><h1>Upload</h1></center>
 <form class="form-control form" method="post" enctype="multipart/form-data">
   <input class="form-control" name="songs[]" multiple=multiple type="file">
+  <input name="csrf" value="<?=$_SESSION['CSRF']?>" hidden>
   <input class="form-control btn btn-primary " name="submit" type="submit" value="upload">
 </form>
 <?php
-if(isset($_POST['submit'])){
+if(isset($_POST['submit']) && $_POST['csrf'] == CSRF_TOKEN){
   $songsCount = count($_FILES['songs']['name']);
   $songs = count($_FILES['songs']['name']);
   for($i = 0;$i < $songsCount ;$i++){

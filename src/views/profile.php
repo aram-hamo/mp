@@ -38,11 +38,12 @@ $music = new music;
   </div>
   <input value="<?=htmlspecialchars($userData[0]['email'])?>" name="email" type="email" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
 </div>
+<input name="csrf" value="<?=$_SESSION['CSRF']?>" hidden>
 <input class="btn btn-primary" type="submit" name=update value="Update">
 <input class="btn btn-danger" type="submit" name=delete value="Delete My Account">
 </form>
 <?php
-if(isset($_POST['update'])){
+if(isset($_POST['update']) && $_POST['csrf'] == CSRF_TOKEN){
   $uid = $userData[0]['id'];
   $auth->updateUserData($uid,$_POST['firstName'],$_POST['lastName'],$_POST['email']);
 }
