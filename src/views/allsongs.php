@@ -5,7 +5,7 @@
 $auth = new auth;
 if(!$auth->tokanCheck()){
   header("Location: /");
-  die();
+  exit();
 }
 $music = new music;
 $mysongs = $music->getAllSongs($userData[0]['id']);
