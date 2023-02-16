@@ -10,7 +10,7 @@ if(!$auth->tokanCheck()){
 ?>
 <center><h1>Upload</h1></center>
 <form class="form-control form" method="post" enctype="multipart/form-data">
-  <input class="form-control" name="songs[]" multiple=multiple type="file">
+  <input class="form-control" name="songs[]" multiple=multiple type="file" accept="audio/*" />
   <input name="csrf" value="<?=$_SESSION['CSRF']?>" hidden>
   <input class="form-control btn btn-primary " name="submit" type="submit" value="upload">
 </form>
