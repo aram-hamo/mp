@@ -10,7 +10,6 @@ $csrf=true;
 $views = array(
     '/'=>'welcome',
     '/dashboard/upload/'=>'upload',
-    '/addnewartist/'=>'newartist',
     '/auth/'=>'auth',
     '/dashboard/playlists/'=>'playlists',
     '/dashboard/'=>'dashboard',

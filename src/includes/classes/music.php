@@ -33,15 +33,6 @@ class music extends db{
     if(!isset($album)){ $album = ""; }
     $this->changeMetadata($album,"",$title,$Id[0]["id"]);
   }
-  public function addArtist($firstName,$lastName,$nickName,$description){
-    $astmt = "insert into artists (firstName,lastName,nickName,description) values (:firstName,:lastName,:nickName,:description)";
-    $artist = $this->conn->prepare($astmt);
-    $artist->bindValue(":firstName",$firstName);
-    $artist->bindValue(":lastName",$lastName);
-    $artist->bindValue(":nickName",$nickName);
-    $artist->bindValue(":description",$description);
-    $artist->execute();
-  }
   public function createPlaylist($uId,$title){
     $createPlaylist = $this->conn->prepare("INSERT INTO playlists (uId,title,p_id)values(:uId,:title,:p_id);");
     $createPlaylist->bindValue(":uId",$uId);
