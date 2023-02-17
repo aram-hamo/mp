@@ -1,3 +1,3 @@
-<script src=static/pwa.js ></script>
+<script src=/static/pwa.js ></script>
 </body>
 </html>
