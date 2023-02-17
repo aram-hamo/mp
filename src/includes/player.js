@@ -1,6 +1,13 @@
 var currentSongId;
 songs = document.getElementById("songs").innerText;
 mysongs = JSON.parse(songs);
+function updateProgressBar (){
+  document.getElementById("progressBar").value = song.currentTime/(song.duration*0.01)*10;
+  cTmin = song.currentTime/60;
+  cTsec = song.currentTime%60;
+  song = document.getElementById("song");
+  document.getElementById("currentTime").innerText = cTmin.toFixed(0)+":"+cTsec.toFixed(0);
+}
 function updateUI(){
   document.getElementById("title").innerText = mysongs[currentSongId]['title'];
   document.getElementById("artist").innerText = mysongs[currentSongId]['artist'];
@@ -14,7 +21,7 @@ function updateUI(){
   cTsec = song.currentTime%60;
   song = document.getElementById("song");
   document.getElementById("currentTime").innerText = cTmin.toFixed(0)+":"+cTsec.toFixed(0);
-  document.getElementById("progressBar").value = (song.duration/1000)*song.currentTime*10;
+
   document.getElementById("duration").innerText = min.toFixed(0)+":"+sec.toFixed(0) ;
 
 if(currentSongId in mysongs){
