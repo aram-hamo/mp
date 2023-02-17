@@ -44,6 +44,7 @@ echo '</pre>';
   text-align: justify;
   padding: 20px;
   border: 1px solid black;
+  margin-bottom:5%;
 }
 #songsFrame > div{
   border-radius:5px;
@@ -75,7 +76,6 @@ a{
 
 </div>
 </div>
-<br><br>
 
 <script src=/includes/player.js></script>
 <?php include('includes/footer.php'); ?>
