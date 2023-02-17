@@ -51,16 +51,19 @@ echo '</pre>';
   margin:2%;
   padding:2%;
 }
+#currentTime{
+  margin-right:35%;
+}
 </style>
 <div class=player>
 <center>
   <img id=coverArt src="" alt=""><br>
   <a id=artist></a><br>
   <a id=songTitle></a><br>
-  <a id=duration></a><br>
-  <a id=currentTime></a><br>
   <audio onpause="updateUI();" onended="next();" ontimeupdate="updateProgressBar();" id=song ></audio>
   <input id=progressBar type="range" min="0" max="1000" value=0 /><br>
+  <a id=currentTime></a>
+  <a id=duration></a></br>
   <img onclick="previous()" class="control pointer" src="/static/previous.png" alt="">
   <img onclick="playPause()" id="playPause" class="control pointer" src="/static/play.png" alt="">
   <img onclick="next()" class="control pointer" src="/static/next.png" alt="">
@@ -69,5 +72,7 @@ echo '</pre>';
 
 </div>
 </div>
+<br><br>
+
 <script src=/includes/player.js></script>
 <?php include('includes/footer.php'); ?>
