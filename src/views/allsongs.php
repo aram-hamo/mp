@@ -59,7 +59,7 @@ echo '</pre>';
   <a id=songTitle></a><br>
   <a id=duration></a><br>
   <a id=currentTime></a><br>
-  <audio onended="next();" ontimeupdate="updateProgressBar();" id=song ></audio>
+  <audio onpause="updateUI();" onended="next();" ontimeupdate="updateProgressBar();" id=song ></audio>
   <input id=progressBar type="range" min="0" max="1000" value=0 /><br>
   <img onclick="previous()" class="control pointer" src="/static/previous.png" alt="">
   <img onclick="playPause()" id="playPause" class="control pointer" src="/static/play.png" alt="">
