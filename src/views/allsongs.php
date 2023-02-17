@@ -77,5 +77,5 @@ a{
 </div>
 </div>
 
-<script src=/includes/player.js></script>
+<script src=/static/player.js></script>
 <?php include('includes/footer.php'); ?>
