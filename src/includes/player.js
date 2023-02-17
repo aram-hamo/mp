@@ -101,7 +101,10 @@ for(var i = 0;i<mysongs.length ; i++){
   songID.innerHTML += "<div>"+mysongs[i]["title"]+"</div>";
   songID.innerHTML += "<a href=edit-metadata?songID="+mysongs[i]["fileName"]+">Edit</a>";
 }
-
+function goTo(){
+  progressBar = document.getElementById("progressBar").value;
+  song.currentTime = progressBar * (song.duration*0.001);
+}
 // event listener for keyboard shortcuts
 document.addEventListener('keydown', function(event) {
 if(event.keyCode == 32) {
