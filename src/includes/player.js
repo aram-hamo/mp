@@ -31,7 +31,7 @@ function updateUI(){
 if(currentSongId in mysongs){
   document.getElementById(mysongs[0]['fileName']).style =  "";
   document.getElementById(mysongs[mysongs.length-1]['fileName']).style =  "";
-  document.getElementById(mysongs[currentSongId]['fileName']).style =  "background-color: red;";
+  document.getElementById(mysongs[currentSongId]['fileName']).style =  "background-color: #E8E8E7;";
 }
 if(currentSongId-1 in mysongs){
   document.getElementById(mysongs[currentSongId-1]['fileName']).style =  "";

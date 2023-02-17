@@ -54,6 +54,9 @@ echo '</pre>';
 #currentTime{
   margin-right:35%;
 }
+a{
+  text-decoration:unset;
+}
 </style>
 <div class=player>
 <center>
