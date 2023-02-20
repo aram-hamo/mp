@@ -99,7 +99,8 @@ for(var i = 0;i<mysongs.length ; i++){
   songsFrame.innerHTML += '<div class=pointer onclick=playThis('+i+') id="'+mysongs[i]["fileName"]+'"></div>';
   songID = document.getElementById(mysongs[i]["fileName"]);
   songID.innerHTML += "<div>"+mysongs[i]["title"]+"</div>";
-  songID.innerHTML += "<a href=edit-metadata?songID="+mysongs[i]["fileName"]+">Edit</a>";
+  songID.innerHTML += "<a class=btn href=edit-metadata?songID="+mysongs[i]["fileName"]+">Edit</a>";
+  songID.innerHTML += '<a class="btn btn" onclick=downloadThis("/content/music/'+mysongs[i]["fileName"]+'")>Download</a>';
 }
 function goTo(){
   progressBar = document.getElementById("progressBar").value;

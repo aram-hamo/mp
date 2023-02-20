@@ -67,7 +67,7 @@ a{
   <audio onpause="updateUI();" onended="next();" ontimeupdate="updateProgressBar();" id=song ></audio>
   <input onclick="goTo();" id=progressBar type="range" min="0" max="1000" value=0 /><br>
   <a id=currentTime></a>
-  <a id=duration></a></br>
+  <a id=duration></a><br>
   <img onclick="previous()" class="control pointer" src="/static/previous.png" alt="">
   <img onclick="playPause()" id="playPause" class="control pointer" src="/static/play.png" alt="">
   <img onclick="next()" class="control pointer" src="/static/next.png" alt="">
@@ -78,4 +78,5 @@ a{
 </div>
 
 <script src=/static/player.js></script>
+<script src=/static/downloadThis.js></script>
 <?php include('includes/footer.php'); ?>
