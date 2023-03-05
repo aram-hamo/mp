@@ -108,17 +108,48 @@ function goTo(){
 }
 // event listener for keyboard shortcuts
 document.addEventListener('keydown', function(event) {
-if(event.keyCode == 32) {
-  playPause();
-}else if(event.keyCode == 40) {
-  musicVolume = song.volume;
-  song.volume = musicVolume - 0.05
-}else if(event.keyCode == 38){
-  musicVolume = song.volume;
-  song.volume = musicVolume + 0.05
-}else if(event.keyCode == 78){
-  next();
-}else if(event.keyCode == 80){
-  previous();
+
+switch(event.keyCode){
+  case 32:
+    playPause();
+    break;
+  case 40:
+    musicVolume = song.volume;
+    song.volume = musicVolume - 0.05
+    break;
+  case 78:
+    next();
+    break;
+  case 80:
+    previous();
+    break;
+  case 49:
+    song.currentTime = song.duration*0.1;
+    break;
+  case 50:
+    song.currentTime = song.duration*0.2;
+    break;
+  case 51:
+    song.currentTime = song.duration*0.3;
+    break;
+  case 52:
+    song.currentTime = song.duration*0.4;
+    break;
+  case 53:
+    song.currentTime = song.duration*0.5;
+    break;
+  case 54:
+    song.currentTime = song.duration*0.6;
+    break;
+  case 55:
+    song.currentTime = song.duration*0.7;
+    break;
+  case 56:
+    song.currentTime = song.duration*0.8;
+    break;
+  case 57:
+    song.currentTime = song.duration*0.9;
+    break;
 }
+
 });
