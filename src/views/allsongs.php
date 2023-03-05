@@ -65,7 +65,7 @@ a{
   <a id=artist></a><br>
   <a id=songTitle></a><br>
   <audio onpause="updateUI();" onended="next();" ontimeupdate="updateProgressBar();" id=song ></audio>
-  <input onclick="goTo();" id=progressBar type="range" min="0" max="1000" value=0 /><br>
+  <input oninput="goTo();" id=progressBar type="range" min="0" max="1000" value=0 /><br>
   <a id=currentTime></a>
   <a id=duration></a><br>
   <img onclick="previous()" class="control pointer" src="/static/previous.png" alt="">
