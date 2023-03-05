@@ -17,12 +17,21 @@ echo '<center><h1>Create Playlist</h1></center><form class="form form-control" m
   if(isset($_POST['submit'])&& $_POST['csrf'] == CSRF_TOKEN){
     $music->createPlaylist($userID,$_POST['title']);
   }
+
   echo "<h2>Your Playlists</h2>";
-  foreach($music->getPlaylist($userID) as $playlist){
-    echo '<a href="'.rootURL.'/dashboard/playlists?id='.$playlist['p_id'].'">'.htmlspecialchars($playlist['title']).'</a><br>'."\n";
-  }
-}else{
+  echo '<div id="playlistsInJson" hidden>';
+  print_r(json_encode($music->getPlaylist($userID)));
+  echo '</div><div id=playlists></div>';
 
 }
+
 ?>
+<script>
+data = JSON.parse(document.getElementById('playlistsInJson').innerText);
+playlists = document.getElementById('playlists');
+
+for(var i = 0;i<data.length ; i++){
+  playlists.innerHTML += '<a href=/dashboard/playlists?id='+data[i]["p_id"]+'  id="'+data[i]["p_id"]+'">'+data[i]["title"]+'</a><br>';
+}
+</script>
 <?php include('includes/footer.php'); ?>

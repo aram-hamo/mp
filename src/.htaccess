@@ -9,3 +9,8 @@ RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
 	Deny from all
 	Satisfy all
 </Files>
+
+<IfModule mod_headers.c>
+    Header unset ETag
+</IfModule>
+FileETag None
