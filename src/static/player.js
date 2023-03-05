@@ -73,7 +73,6 @@ function next(){
   document.getElementById("playPause").src = "/static/pause.png";
   song.play();
   updateUI();
-  window.location.href = "#"+mysongs[currentSongId]['fileName'];
 }
 function playPause(){
   song = document.getElementById("song");
