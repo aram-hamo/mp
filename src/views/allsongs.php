@@ -35,7 +35,7 @@ echo '</pre>';
   margin:20px;
 }
 #progressBar{
-  width:40%;
+  width:80%;
 }
 #songsFrame{
   width: 100%;
@@ -51,9 +51,6 @@ echo '</pre>';
   border: 1px solid black;
   margin:2%;
   padding:2%;
-}
-#currentTime{
-  margin-right:35%;
 }
 a{
   text-decoration:unset;
