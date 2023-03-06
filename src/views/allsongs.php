@@ -37,21 +37,6 @@ echo '</pre>';
 #progressBar{
   width:80%;
 }
-#songsFrame{
-  width: 100%;
-  height: 50%;
-  overflow: auto;
-  text-align: justify;
-  padding: 20px;
-  border: 1px solid black;
-  margin-bottom:5%;
-}
-#songsFrame > div{
-  border-radius:5px;
-  border: 1px solid black;
-  margin:2%;
-  padding:2%;
-}
 a{
   text-decoration:unset;
 }

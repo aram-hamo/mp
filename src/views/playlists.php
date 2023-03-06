@@ -18,7 +18,7 @@ echo '<center><h1>Create Playlist</h1></center><form class="form form-control" m
     $music->createPlaylist($userID,$_POST['title']);
   }
 
-  echo "<h2>Your Playlists</h2>";
+  echo "<br><center><h2>Your Playlists</h2></center>";
   echo '<div id="playlistsInJson" hidden>';
   print_r(json_encode($music->getPlaylist($userID)));
   echo '</div><div id=playlists></div>';
@@ -27,11 +27,14 @@ echo '<center><h1>Create Playlist</h1></center><form class="form form-control" m
 
 ?>
 <script>
+function redirect(url){
+  window.location.href = "?id="+url;
+}
 data = JSON.parse(document.getElementById('playlistsInJson').innerText);
 playlists = document.getElementById('playlists');
 
 for(var i = 0;i<data.length ; i++){
-  playlists.innerHTML += '<a href=/dashboard/playlists?id='+data[i]["p_id"]+'  id="'+data[i]["p_id"]+'">'+data[i]["title"]+'</a><br>';
+  playlists.innerHTML += '<div onclick=redirect("'+data[i]["p_id"]+'"); class=playlist>'+data[i]["title"]+'</div>';
 }
 </script>
 <?php include('includes/footer.php'); ?>
