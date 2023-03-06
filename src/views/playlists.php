@@ -20,7 +20,7 @@ echo '<center><h1>Create Playlist</h1></center><form class="form form-control" m
 
   echo "<br><center><h2>Your Playlists</h2></center>";
   echo '<div id="playlistsInJson" hidden>';
-  print_r(json_encode($music->getPlaylist($userID)));
+  echo htmlspecialchars(json_encode($music->getPlaylist($userID)));
   echo '</div><div id=playlists></div>';
 
 }
@@ -34,7 +34,8 @@ data = JSON.parse(document.getElementById('playlistsInJson').innerText);
 playlists = document.getElementById('playlists');
 
 for(var i = 0;i<data.length ; i++){
-  playlists.innerHTML += '<div onclick=redirect("'+data[i]["p_id"]+'"); class=playlist>'+data[i]["title"]+'</div>';
+  title = escapeHtml(data[i]["title"]);
+  playlists.innerHTML += '<div onclick=redirect("'+data[i]["p_id"]+'"); class=playlist><pre>'+title+'</pre></div>';
 }
 </script>
 <?php include('includes/footer.php'); ?>

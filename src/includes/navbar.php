@@ -20,7 +20,7 @@ $userData = $auth->getUserDataByToken($_COOKIE['tokan']);
           <a class="nav-link" href="/dashboard/allsongs">My Songs</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/dashboard/profile"><?=$userData[0]['firstName'],' ',$userData[0]['lastName'],'( '.$userData[0]['username'].' )' ?></a>
+          <a class="nav-link" href="/dashboard/profile"><?= htmlspecialchars($userData[0]['firstName']),' ',htmlspecialchars($userData[0]['lastName']),'( '.$userData[0]['username'].' )' ?></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="">Logout</a>

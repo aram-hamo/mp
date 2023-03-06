@@ -10,7 +10,7 @@ if(!$auth->tokanCheck()){
 $music = new music;
 $mysongs = $music->getAllSongs($userData[0]['id']);
 echo '<pre id=songs hidden>';
-print_r(json_encode($mysongs));
+print_r(htmlspecialchars(json_encode($mysongs)));
 echo '</pre>';
 ?>
 <style>
