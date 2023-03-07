@@ -8,7 +8,10 @@
 </form>
 <?php
 if(isset($_POST['submit']) && $_POST['csrf'] == CSRF_TOKEN){
-  $auth->login($_POST['username'],$_POST['password']);
+  if($auth->login($_POST['username'],$_POST['password'])){
+    header("Location: /dashboard");
+    exit();
+  }
   if($auth->tokanCheck()){
     header("Location: /dashboard");
     exit();
