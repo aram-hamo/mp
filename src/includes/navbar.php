@@ -23,15 +23,18 @@ $userData = $auth->getUserDataByToken($_COOKIE['tokan']);
           <a class="nav-link" href="/dashboard/profile"><?= htmlspecialchars($userData[0]['firstName']),' ',htmlspecialchars($userData[0]['lastName']),'( '.htmlspecialchars($userData[0]['username']).' )' ?></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="">Logout</a>
+          <form method=post>
+            <input name="csrf" value="<?=$_SESSION['CSRF']?>" hidden>
+            <input  value="Logout" type="submit" class="btn my-2 my-sm-0">
+          </form>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 <?php
-if(isset($_POST['logout'])){
-  setcookie('tokan',false);
+if($_POST['csrf'] == CSRF_TOKEN){
+  setcookie('tokan', '', time()-1000, '/');
   header("Location: /");
 }
 ?>
