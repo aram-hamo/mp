@@ -14,8 +14,8 @@ class auth extends db{
 	$createUser->bindValue(':email',$email);
 	$createUser->bindValue(':password',$hashedPassword);
   $createUser->bindValue(':tokan',$tokan);
-	if($createUser->execute()){
-    setcookie("tokan",$tokan,time()+60*60*24*30,null,null,true,true);
+	if($createUser->execute() &&setcookie("tokan",$tokan,time()+60*60*24*30,null,null,true,true) ){
+    return true;
   }
   }
 

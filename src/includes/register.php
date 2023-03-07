@@ -16,7 +16,10 @@ if(!$registration){
   echo "<script src=static/disable-registration.js></script>";
 }
 if(isset($_POST['submit']) && $_POST['csrf'] == CSRF_TOKEN && $registration){
-  $auth->register($_POST['firstName'],$_POST['lastName'],$_POST['username'],$_POST['password'],$_POST['email']);
+  if($auth->register($_POST['firstName'],$_POST['lastName'],$_POST['username'],$_POST['password'],$_POST['email'])){
+    header("Location: /dashboard");
+    exit();
+  }
   if($auth->tokanCheck()){
     header("Location: /dashboard");
     exit();
