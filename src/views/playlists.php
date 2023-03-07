@@ -35,7 +35,7 @@ playlists = document.getElementById('playlists');
 
 for(var i = 0;i<data.length ; i++){
   title = escapeHtml(data[i]["title"]);
-  playlists.innerHTML += '<div onclick=redirect("'+data[i]["p_id"]+'"); class=playlist><pre>'+title+'</pre></div>';
+  playlists.innerHTML += '<div onclick=redirect("'+data[i]["p_id"]+'"); class=playlist>'+title+'</div>';
 }
 </script>
 <?php include('includes/footer.php'); ?>
