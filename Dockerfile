@@ -11,7 +11,7 @@ RUN a2ensite default-ssl
 RUN a2enmod ssl
 RUN a2enmod rewrite
 RUN printf "<Directory /var/www/>\n AllowOverride all\n</Directory>\n" >> /etc/apache2/apache2.conf
-RUN printf "upload_max_filesize = 300M\npost_max_size = 300M\n" >> /etc/php/7.4/apache2/php.ini
+RUN printf "upload_max_filesize = 1G\npost_max_size = 10G\n" >> /etc/php/7.4/apache2/php.ini
 RUN echo 'ifconfig | grep "inet"| cut -d " " -f  10| grep -v "127.0.0.1";apachectl start && tail -f /var/log/apache2/access.log' > /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT /entrypoint.sh
