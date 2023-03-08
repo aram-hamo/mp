@@ -12,7 +12,7 @@ release(){
 }
 devServer(){
   sed -i 's/debug\=false/debug\=true/' src/config.php
-  cat src/install/tables.sql | sqlite3 src/db.sqlite
+  cat src/install/tables.sql | $asRoot sqlite3 src/db.sqlite
   $asRoot chown 33:33 -R *
   $asRoot docker run --rm -it --volume $PWD/src/:/var/www/html/ mp
 }

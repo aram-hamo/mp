@@ -14,3 +14,10 @@ RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
     Header unset ETag
 </IfModule>
 FileETag None
+LimitRequestBody 10737418235
+php_value upload_max_filesize 10000M
+php_value max_execution_time 500
+php_value max_input_time 500
+php_value max_file_uploads 400
+php_value _max_size 10000M
+php_value post_max_size 10000M
