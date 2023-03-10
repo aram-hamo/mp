@@ -112,6 +112,15 @@ switch(event.keyCode){
   case 32:
     playPause();
     break;
+  case 35:
+    song.currentTime = song.duration;
+    break;
+  case 37:
+    song.currentTime = song.currentTime-5;
+    break;
+  case 39:
+    song.currentTime = song.currentTime+5;
+    break;
   case 40:
     musicVolume = song.volume;
     song.volume = musicVolume - 0.05
@@ -121,6 +130,9 @@ switch(event.keyCode){
     break;
   case 80:
     previous();
+    break;
+  case 48:
+    song.currentTime = 0;
     break;
   case 49:
     song.currentTime = song.duration*0.1;
