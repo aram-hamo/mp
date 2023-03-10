@@ -118,12 +118,16 @@ switch(event.keyCode){
   case 37:
     song.currentTime = song.currentTime-5;
     break;
+  case 38:
+    musicVolume = song.volume;
+    song.volume = musicVolume + 0.05;
+    break;
   case 39:
     song.currentTime = song.currentTime+5;
     break;
   case 40:
     musicVolume = song.volume;
-    song.volume = musicVolume - 0.05
+    song.volume = musicVolume - 0.05;
     break;
   case 78:
     next();
