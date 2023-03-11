@@ -40,6 +40,10 @@ echo '</pre>';
 a{
   text-decoration:unset;
 }
+#volume{
+  margin-bottom:1%;
+
+}
 </style>
 <div class=player>
 <center>
@@ -52,7 +56,9 @@ a{
   <a id=duration></a><br>
   <img onclick="previous()" class="control pointer" src="/static/previous.png" alt="">
   <img onclick="playPause()" id="playPause" class="control pointer" src="/static/play.png" alt="">
-  <img onclick="next()" class="control pointer" src="/static/next.png" alt="">
+  <img onclick="next()" class="control pointer" src="/static/next.png" alt=""><br>
+  <img id=volume src=/static/volume-down.png>
+  <input oninput="changeVolume();" id=volumeBar type="range" min="0" max="100" value=0 /><br>
 </center>
 <div id=songsFrame>
 
