@@ -2,7 +2,7 @@
 
 class music extends db{
 
-  public function upload($file_name){
+  public function upload($file_name,$songName){
     $fileDetect = new FileDetect;
 
     $s_stmt = "insert into songs (format,fileName)values(:format,:fileName)";
@@ -29,7 +29,7 @@ class music extends db{
     $metadataInJSON = json_decode($metadata,1);
     $title = $metadataInJSON[0]['Title'] ;
     $album = $metadataInJSON[0]['Album'];
-    if(!isset($title)){ $title = ""; }
+    if(!isset($title)){ $title = $songName; }
     if(!isset($album)){ $album = ""; }
     $this->changeMetadata($album,"",$title,$Id[0]["id"]);
   }

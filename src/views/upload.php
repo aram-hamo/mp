@@ -22,9 +22,9 @@ if(isset($_POST['submit']) && $_POST['csrf'] == CSRF_TOKEN){
     $fileName = bin2hex(openssl_random_pseudo_bytes(16));
     $file = file_get_contents($_FILES['songs']['tmp_name'][$i]);
     move_uploaded_file($_FILES['songs']['tmp_name'][$i], 'content/music/'.$fileName);
-
+    $songName = $_FILES['songs']['name'][0];
     $song = new music;
-    $song->upload($fileName);
+    $song->upload($fileName,$songName);
   }
 }
 ?>
