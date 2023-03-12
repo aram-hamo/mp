@@ -17,5 +17,6 @@ $views = array(
     '/dashboard/edit-metadata/'=>'edit-metadata',
     '/dashboard/allsongs/'=>'allsongs',
     '/dashboard/profile/'=>'profile',
-    '/player/'=>'player'
+    '/player/'=>'player',
+    '/dashboard/playlist/'=>'playlist'
 );

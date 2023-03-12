@@ -28,7 +28,7 @@ echo '<center><h1>Create Playlist</h1></center><form class="form form-control" m
 ?>
 <script>
 function redirect(url){
-  window.location.href = "?id="+url;
+  window.location.href = "/dashboard/playlist/?id="+url;
 }
 data = JSON.parse(document.getElementById('playlistsInJson').innerText);
 playlists = document.getElementById('playlists');
