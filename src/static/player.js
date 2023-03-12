@@ -135,7 +135,6 @@ switch(event.keyCode){
     song.volume = musicVolume - 0.05;
     document.getElementById("volumeBar").value = song.volume*100;
     break;
-    break;
   case 78:
     next();
     break;
