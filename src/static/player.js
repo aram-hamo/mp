@@ -17,7 +17,7 @@ function updateUI(){
   document.getElementById("artist").innerText = mysongs[currentSongId]['artist'];
   document.getElementById("coverArt").src = '/content/music/'+mysongs[currentSongId]['fileName']+'.png';
   document.getElementById("songTitle").innerHTML = mysongs[currentSongId]['title'];
-
+  document.getElementById("volumeBar").value = song.volume*100;
 
   min = song.duration/60;
   sec = song.duration%60;
@@ -105,6 +105,10 @@ function goTo(){
   progressBar = document.getElementById("progressBar").value;
   song.currentTime = progressBar * (song.duration*0.001);
 }
+function changeVolume(){
+  volumeBar = document.getElementById("volumeBar").value;
+  song.volume = volumeBar/100;
+}
 // event listener for keyboard shortcuts
 document.addEventListener('keydown', function(event) {
 
@@ -121,6 +125,7 @@ switch(event.keyCode){
   case 38:
     musicVolume = song.volume;
     song.volume = musicVolume + 0.05;
+    document.getElementById("volumeBar").value = song.volume*100;
     break;
   case 39:
     song.currentTime = song.currentTime+5;
@@ -128,6 +133,8 @@ switch(event.keyCode){
   case 40:
     musicVolume = song.volume;
     song.volume = musicVolume - 0.05;
+    document.getElementById("volumeBar").value = song.volume*100;
+    break;
     break;
   case 78:
     next();
