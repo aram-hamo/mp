@@ -105,9 +105,19 @@ function goTo(){
   progressBar = document.getElementById("progressBar").value;
   song.currentTime = progressBar * (song.duration*0.001);
 }
+function changeVolumeLogo(){
+  if(song.volume*100 > 50){
+    document.getElementById("volume").src = "/static/volume-up.png";
+  }else if(song.volume == 0){
+    document.getElementById("volume").src = "/static/mute.png";
+  }else if(song.volume*100 < 50){
+    document.getElementById("volume").src = "/static/volume-down.png";
+  }
+}
 function changeVolume(){
   volumeBar = document.getElementById("volumeBar").value;
   song.volume = volumeBar/100;
+  changeVolumeLogo();
 }
 // event listener for keyboard shortcuts
 document.addEventListener('keydown', function(event) {
@@ -126,14 +136,18 @@ switch(event.keyCode){
     musicVolume = song.volume;
     song.volume = musicVolume + 0.05;
     document.getElementById("volumeBar").value = song.volume*100;
+    changeVolumeLogo();
     break;
   case 39:
     song.currentTime = song.currentTime+5;
+    changeVolumeLogo();
     break;
   case 40:
     musicVolume = song.volume;
     song.volume = musicVolume - 0.05;
+    if(song.volume < 0.06 ){song.volume = 0;}
     document.getElementById("volumeBar").value = song.volume*100;
+    changeVolumeLogo();
     break;
   case 78:
     next();
