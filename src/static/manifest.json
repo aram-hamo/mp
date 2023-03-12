@@ -6,6 +6,16 @@
   "display": "standalone",
   "scope": "/",
   "theme_color": "#F8F9FA",
+  "shortcuts": [
+  {
+    "name": "Playlists",
+    "url": "/dashboard/playlists"
+  },
+  {
+    "name": "My Songs",
+    "url": "/dashboard/allsongs"
+  }
+  ],
   "icons": [{
     "src": "icon.png",
     "sizes": "512x512",
