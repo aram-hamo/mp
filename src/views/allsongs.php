@@ -60,7 +60,7 @@ a{
   <img onclick="previous()" class="control pointer" src="/static/previous.png" alt="">
   <img onclick="playPause()" id="playPause" class="control pointer" src="/static/play.png" alt="">
   <img onclick="next()" class="control pointer" src="/static/next.png" alt=""><br>
-  <img id=volume src=/static/volume-down.png>
+  <img id=volume onclick="muteUnmute();" src=/static/volume-down.png>
   <input oninput="changeVolume();" id=volumeBar class="form-range" type="range" min="0" max="100" value=0 /><br>
 </center>
 <div id=songsFrame>

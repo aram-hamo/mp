@@ -104,14 +104,24 @@ function goTo(){
   song.currentTime = progressBar * (song.duration*0.001);
 }
 function changeVolumeLogo(){
-  if(song.volume*100 > 50){
+  if(song.volume*100 > 50 && !song.muted){
     document.getElementById("volume").src = "/static/volume-up.png";
-  }else if(song.volume == 0){
+  }else if(song.volume == 0 || song.muted == true){
     document.getElementById("volume").src = "/static/mute.png";
-  }else if(song.volume*100 < 50){
+  }else if(song.volume*100 < 50 && !song.muted){
     document.getElementById("volume").src = "/static/volume-down.png";
   }
 }
+function muteUnmute(){
+  if(song.muted){
+    song.muted = false;
+    changeVolumeLogo();
+  }else{
+    song.muted = true;
+    changeVolumeLogo();
+  }
+}
+
 function changeVolume(){
   volumeBar = document.getElementById("volumeBar").value;
   song.volume = volumeBar/100;
