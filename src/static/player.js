@@ -3,7 +3,7 @@ songs = document.getElementById("songs").innerText;
 mysongs = JSON.parse(songs);
 
 function updateProgressBar (){
-  document.getElementById("progressBar").value = song.currentTime/(song.duration*0.01)*10;
+  document.getElementById("progressBar").value = song.currentTime/(song.duration*0.001);
   cTmin = song.currentTime/60;
   cTsec = song.currentTime%60;
   min = song.duration/60;
